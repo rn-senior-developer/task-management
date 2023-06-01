@@ -70,3 +70,7 @@ router-outlet + * {
 .rm-padding-wrapper {
   margin: 0 (-($spacer * 3));
 }
+
+.content-container {
+  margin-top: 85px;
+}

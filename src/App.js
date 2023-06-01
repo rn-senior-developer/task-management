@@ -1,5 +1,8 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { BrowserRouter } from 'react-router-dom';
+import { FirebaseAppProvider, FirestoreProvider, useFirebaseApp } from 'reactfire';
+import { getFirestore } from 'firebase/firestore';
+import { firebaseConfig } from "./config/firebase"
 import configureStore from './config/configureStore';
 import { Provider } from 'react-redux';
 import Routes from './Routes';
@@ -254,18 +257,27 @@ library.add(
 
 const store = configureStore();
 
-class App extends Component {
-  render() {
-    return (
+const FirestoreApp = () =>  {
+  const firestoreInstance = getFirestore(useFirebaseApp());
+  return (
+    <FirestoreProvider sdk={firestoreInstance}>
       <Provider store={store}>
-        <BrowserRouter basename="/bamburgh-react-ui-kit-reactstrap-free/">
+        <BrowserRouter basename="/">
           <ScrollToTop>
             <Routes />
           </ScrollToTop>
         </BrowserRouter>
       </Provider>
-    );
-  }
+    </FirestoreProvider>
+  );
+}
+
+const App = () => {
+  return (
+    <FirebaseAppProvider firebaseConfig={firebaseConfig}>
+      <FirestoreApp />
+    </FirebaseAppProvider>
+  )
 }
 
 export default App;

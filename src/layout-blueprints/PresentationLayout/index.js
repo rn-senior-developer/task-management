@@ -13,7 +13,7 @@ const PresentationLayout = props => {
     <Fragment>
       <div className={clsx(contentBackground)}>
         <Header />
-        <div className="container-fluid px-5">{children}</div>
+        <div className="container-fluid px-5 content-container">{children}</div>
         <Footer />
       </div>
     </Fragment>

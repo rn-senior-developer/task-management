@@ -5,4 +5,4 @@ export { default as Footer } from './Footer';
 export { default as PromoSection } from './PromoSection';
 export { default as ExampleWrapperSimple } from './ExampleWrapperSimple';
 export { default as ExampleWrapperSeamless } from './ExampleWrapperSeamless';
-export { default as ExampleWrapperContainer } from './ExampleWrapperContainer';
+export { default as WrapperContainer } from './WrapperContainer';
